@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="poste">
+            <h2><span>Poste</span> {{poste.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{poste.name}}</span>
+                </dd>
+                <dt><span>Quote Part</span></dt>
+                <dd>
+                    <span>{{poste.quotePart}}</span>
+                </dd>
+                <dt><span>Place</span></dt>
+                <dd>
+                    <div *ngIf="poste.place">
+                        <a [routerLink]="['/bureau', poste.place?.id, 'view']">{{poste.place?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Habilitation</span></dt>
+                <dd>
+                    <div *ngIf="poste.habilitation">
+                        <a [routerLink]="['/personne', poste.habilitation?.id, 'view']">{{poste.habilitation?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/poste', poste.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

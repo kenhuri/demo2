@@ -1,0 +1,36 @@
+{
+    "name": "Poste",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quotePart",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "place",
+            "otherEntityName": "bureau",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "habilitation",
+            "otherEntityName": "personne",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20180718134223",
+    "entityTableName": "poste",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
