@@ -1,0 +1,30 @@
+{
+    "name": "Bureau",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "espace",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "postes",
+            "otherEntityName": "poste",
+            "otherEntityRelationshipName": "place"
+        }
+    ],
+    "changelogDate": "20180718133311",
+    "entityTableName": "bureau",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

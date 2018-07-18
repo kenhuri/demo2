@@ -1,0 +1,34 @@
+
+
+
+entity Personne {
+	name String,
+    client String,
+    image ImageBlob
+}
+
+entity Bureau {
+	name String,
+    espace String
+}
+
+entity Poste {
+    name String,
+    quotePart Integer
+}
+
+relationship OneToMany {
+  Bureau{postes} to Poste{place(name)}
+  Personne{travail} to Poste{habilitation(name)}
+}
+
+
+paginate Bureau with pager
+paginate Personne with pagination
+
+
+dto Poste with mapstruct
+
+service Personne with serviceClass
+service Poste with serviceImpl
+
