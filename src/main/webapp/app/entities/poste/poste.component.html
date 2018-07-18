@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Postes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-poste" [routerLink]="['/poste/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Poste
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="postes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Quote Part</span></th>
+            <th><span>Place</span></th>
+            <th><span>Habilitation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let poste of postes ;trackBy: trackId">
+                <td><a [routerLink]="['/poste', poste.id, 'view' ]">{{poste.id}}</a></td>
+                <td>{{poste.name}}</td>
+                <td>{{poste.quotePart}}</td>
+                <td>
+                    <div *ngIf="poste.place">
+                        <a [routerLink]="['../bureau', poste.place?.id, 'view' ]" >{{poste.place?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="poste.habilitation">
+                        <a [routerLink]="['../personne', poste.habilitation?.id, 'view' ]" >{{poste.habilitation?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/poste', poste.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/poste', poste.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'poste/'+ poste.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
