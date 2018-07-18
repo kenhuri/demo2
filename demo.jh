@@ -1,0 +1,18 @@
+
+
+
+entity Personne {
+	name String,
+    client String,
+    image ImageBlob
+}
+
+entity Bureau {
+	name String,
+    espace String
+}
+
+relationship OneToMany {
+  Personne{personne} to Bureau{place(name)}
+}
+
